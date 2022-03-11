@@ -1,54 +1,60 @@
 import "./App.css";
 
 function App() {
-  const Formulario = [
+  const formulario = [
     {
       nome: "Henrique Silva",
+      telefone: "(11) 95987-0654",
       idade: 16,
       nascimento: "14/09/2006",
-      nome_da_mae: "Laura Silva",
-      nome_do_pai: "Alastor Silva",
+      nomeMae: "Laura Silva",
+      nomePai: "Alastor Silva",
     },
     {
       nome: "Carlos Santiago",
+      telefone: "(11) 95987-0654",
       idade: 20,
       nascimento: "19/12/2002",
-      nome_da_mae: "Elaine Santiago",
-      nome_do_pai: "",
+      nomeMae: "Elaine Santiago",
+      nomePai: "",
     },
     {
       nome: "Eduardo Meira",
+      telefone: "(11) 95469-0967",
       idade: 19,
       nascimento: "15/08/2003",
-      nome_da_mae: "Alessandra Meira",
-      nome_do_pai: "Vagner Meira",
+      nomeMae: "Alessandra Meira",
+      nomePai: "Vagner Meira",
     },
     {
       nome: "Paulo Figueira",
+      telefone: "(11) 93456-2734",
       idade: 22,
       nascimento: "03/04/2000",
-      nome_da_mae: "Vivian Figueira",
-      nome_do_pai: "",
+      nomeMae: "Vivian Figueira",
+      nomePai: "",
     },
     {
       nome: "Fabiano Oliveira",
+      telefone: "(11) 96790-6432",
       idade: 17,
       nascimento: "14/09/2005",
-      nome_da_mae: "Yelena Oliveira",
-      nome_do_pai: "Olivio Oliveira",
+      nomeMae: "Yelena Oliveira",
+      nomePai: "Olivio Oliveira",
     },
   ];
   return (
     <div className="App">
-      {Formulario.map((item) => {
+      {formulario.map((item) => {
         return (
           <div className="box-form">
             <div className="box-info">
               <h2>Nome: {item.nome}</h2>
+              <p><strong>Telefone:</strong> {item.telefone}</p>
               <p><strong>Idade:</strong> {item.idade }</p>
               <p><strong>Data de nascimento:</strong> {item.nascimento}</p>
-              <p><strong>Nome da Mãe:</strong> {item.nome_da_mae}</p>
-              {item.nome_do_pai && <p><strong>Nome do Pai:</strong> {item.nome_do_pai}</p>}
+              <p><strong>Nome da Mãe:</strong> {item.nomeMae}</p>
+              {item.nomePai && <p><strong>Nome do Pai:</strong> {item.nomePai}</p>}
             </div>
           </div>
         );
