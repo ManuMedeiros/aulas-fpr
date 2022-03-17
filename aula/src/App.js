@@ -3,60 +3,79 @@ import "./App.css";
 function App() {
   const formulario = [
     {
-      nome: "Henrique Silva",
+      nome: "Henrique",
+      clientePremium: true,
+      clientePadrao: false,
+      clienteBasico: false,
       telefone: "(11) 95987-0654",
-      idade: 16,
-      nascimento: "14/09/2006",
-      nomeMae: "Laura Silva",
-      nomePai: "Alastor Silva",
+      produto: "https://img.ibxk.com.br/2021/09/30/30180320047397.jpg",
+      frete: true,
     },
     {
-      nome: "Carlos Santiago",
+      nome: "Felipe",
+      clientePremium: false,
+      clientePadrao: true,
+      clienteBasico: false,
       telefone: "(11) 95987-0654",
-      idade: 20,
-      nascimento: "19/12/2002",
-      nomeMae: "Elaine Santiago",
-      nomePai: "",
+      produto: "https://img.ibxk.com.br/2021/09/30/30180320047397.jpg",
+      frete: false,
     },
     {
-      nome: "Eduardo Meira",
-      telefone: "(11) 95469-0967",
-      idade: 19,
-      nascimento: "15/08/2003",
-      nomeMae: "Alessandra Meira",
-      nomePai: "Vagner Meira",
+      nome: "Adelaide",
+      clientePremium: false,
+      clientePadrao: false,
+      clienteBasico: true,
+      telefone: "(11) 95987-0654",
+      produto: "https://img.ibxk.com.br/2021/09/30/30180320047397.jpg",
+      frete: false,
     },
     {
-      nome: "Paulo Figueira",
-      telefone: "(11) 93456-2734",
-      idade: 22,
-      nascimento: "03/04/2000",
-      nomeMae: "Vivian Figueira",
-      nomePai: "",
-    },
-    {
-      nome: "Fabiano Oliveira",
-      telefone: "(11) 96790-6432",
-      idade: 17,
-      nascimento: "14/09/2005",
-      nomeMae: "Yelena Oliveira",
-      nomePai: "Olivio Oliveira",
+      nome: "Italo",
+      clientePremium: false,
+      clientePadrao: false,
+      clienteBasico: true,
+      telefone: "(11) 95987-0654",
+      produto: "https://img.ibxk.com.br/2021/09/30/30180320047397.jpg",
+      frete: false,
     },
   ];
+
+  const precos = {
+    precoPremium: 8.999,
+    precoPadrao: 9.999,
+  };
+
   return (
     <div className="App">
+      <h1>Lojinha do seu Zé - Notebooks</h1>
       {formulario.map((item) => {
         return (
-          <div className="box-form">
-            <div className="box-info">
-              <h2>Nome: {item.nome}</h2>
-              <p><strong>Telefone:</strong> {item.telefone}</p>
-              <p><strong>Idade:</strong> {item.idade }</p>
-              <p><strong>Data de nascimento:</strong> {item.nascimento}</p>
-              <p><strong>Nome da Mãe:</strong> {item.nomeMae}</p>
-              {item.nomePai && <p><strong>Nome do Pai:</strong> {item.nomePai}</p>}
-            </div>
-          </div>
+          <>
+            {item.clientePremium && (
+              <div className="box-form">
+                <div className="box-info">
+                  <h2>Nome: {item.nome}</h2>
+                  <p>
+                    <strong>Telefone:</strong> {item.telefone}
+                  </p>
+                  {item.nome === "Italo" ? (
+                    <p>Não existe!</p>
+                  ) : (
+                    <>
+                      <img className="img-product" src={item.produto} />
+                      <p>
+                        <strong>Preço:</strong>{" "}
+                        {item.clientePremium
+                          ? precos.precoPremium
+                          : precos.precoPadrao}
+                        </p>
+                        {item.clientePremium && <p><strong>Frete Grátis</strong></p>}
+                    </>
+                  )}
+                </div>
+              </div>
+            )}
+          </>
         );
       })}
     </div>
