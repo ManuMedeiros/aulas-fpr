@@ -1,60 +1,129 @@
 import "./App.css";
 
 function App() {
-  const formulario = [
+  const sereitei = [
     {
-      nome: "Henrique Silva",
-      telefone: "(11) 95987-0654",
-      idade: 16,
-      nascimento: "14/09/2006",
-      nomeMae: "Laura Silva",
-      nomePai: "Alastor Silva",
+      local: "Soul Society",
+      dangai: true,
+      Ryokas: [
+        {
+          ichigo: "Ichigo Korosaki",
+          sado: "Sado Yasutora",
+          uryu: "Uryu Ishida",
+        },
+      ],
+      sensei: [
+        {
+          mundoReal: true,
+          sensei: "Urahara Kisuki",
+        },
+        {
+          mundoDasAlmas: true,
+          sensei: "Yoruichi Shihōin",
+        },
+      ],
     },
     {
-      nome: "Carlos Santiago",
-      telefone: "(11) 95987-0654",
-      idade: 20,
-      nascimento: "19/12/2002",
-      nomeMae: "Elaine Santiago",
-      nomePai: "",
+      local: "Hueco Mundo",
+      dangai: true,
+      Ryokas: [
+        {
+          ichigo: "Ichigo Korosaki",
+          sado: "Sado Yasutora",
+          uryu: "Uryu Ishida",
+        },
+      ],
+      sensei: [
+        {
+          mundoReal: true,
+          sensei: "Shinji Hirako",
+        },
+        {
+          mundoDasAlmas: true,
+          sensei: "Zaraki Kenpachi",
+        },
+      ],
     },
     {
-      nome: "Eduardo Meira",
-      telefone: "(11) 95469-0967",
-      idade: 19,
-      nascimento: "15/08/2003",
-      nomeMae: "Alessandra Meira",
-      nomePai: "Vagner Meira",
+      local: "Mundo Real",
+      dangai: true,
+      Ryokas: [
+        {
+          ichigo: "Ichigo Korosaki",
+          sado: "Sado Yasutora",
+          uryu: "Uryu Ishida",
+        },
+      ],
+      sensei: [
+        {
+          mundoReal: true,
+          sensei: "Kūgo Ginjō",
+        },
+        {
+          mundoDasAlmas: true,
+          sensei: "Isshin Kurosaki",
+        },
+      ],
     },
     {
-      nome: "Paulo Figueira",
-      telefone: "(11) 93456-2734",
-      idade: 22,
-      nascimento: "03/04/2000",
-      nomeMae: "Vivian Figueira",
-      nomePai: "",
-    },
-    {
-      nome: "Fabiano Oliveira",
-      telefone: "(11) 96790-6432",
-      idade: 17,
-      nascimento: "14/09/2005",
-      nomeMae: "Yelena Oliveira",
-      nomePai: "Olivio Oliveira",
+      local: "Soul Society",
+      dangai: true,
+      Ryokas: [
+        {
+          ichigo: "Ichigo Korosaki",
+          sado: "Sado Yasutora",
+          uryu: "Uryu Ishida",
+        },
+      ],
+      sensei: [
+        {
+          mundoReal: true,
+          sensei: "Urahara Kisuki",
+        },
+        {
+          mundoDasAlmas: true,
+          sensei: "Yoruichi Shihōin",
+        },
+      ],
     },
   ];
+
   return (
     <div className="App">
-      {formulario.map((item) => {
+      {sereitei.map((bleach) => {
         return (
           <div className="box-form">
             <div className="box-info">
-              <h2>Nome: {item.nome}</h2>
-              <p><strong>Telefone:</strong> {item.telefone}</p>
-              <p><strong>Idade:</strong> {item.idade }</p>
-              <p><strong>Data de nascimento:</strong> {item.nascimento}</p>
-              <p><strong>Nome da Mãe:</strong> {item.nomeMae}</p>
-              {item.nomePai && <p><strong>Nome do Pai:</strong> {item.nomePai}</p>}
+              <div>
+                <h1>Arcos</h1>
+                <h2>{bleach.local}</h2>
+              </div>
+              {bleach.Ryokas.map((personagens) => {
+                return (
+                  <div>
+                    <h3>Melhores Personagens</h3>
+                    <p>
+                      <strong>Shinigame Substituto:</strong> {personagens.ichigo}
+                    </p>
+                    <p>
+                      <strong>Humano:</strong> {personagens.sado}
+                    </p>
+                    <p>
+                      <strong>Quincy</strong> {personagens.uryu}
+                    </p>
+                  </div>
+                );
+              })}
+              <h3>Senseis</h3>
+              {bleach.sensei.map((seniors) => {
+                return (
+                  <div>
+                    <p>
+                      <strong>Sensei:</strong> {seniors.sensei}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         );
