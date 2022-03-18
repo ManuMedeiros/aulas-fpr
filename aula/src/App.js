@@ -1,64 +1,85 @@
 import "./App.css";
 
 function App() {
-  const formulario = [
+
+  const mercearia = [
     {
-      nome: "Henrique Silva",
-      telefone: "(11) 95987-0654",
-      idade: 16,
-      nascimento: "14/09/2006",
-      nomeMae: "Laura Silva",
-      nomePai: "Alastor Silva",
+      segunda: "Pão",
+      terca: "Café",
+      sabado: "Leite",
+      ativo: true,
     },
     {
-      nome: "Carlos Santiago",
-      telefone: "(11) 95987-0654",
-      idade: 20,
-      nascimento: "19/12/2002",
-      nomeMae: "Elaine Santiago",
-      nomePai: "",
+      segunda: "Presunto",
+      terca: "Queijo",
+      sabado: "Margarina",
+      ativo: false,
     },
     {
-      nome: "Eduardo Meira",
-      telefone: "(11) 95469-0967",
-      idade: 19,
-      nascimento: "15/08/2003",
-      nomeMae: "Alessandra Meira",
-      nomePai: "Vagner Meira",
+      segunda: "Bolacha",
+      terca: "Salame",
+      sabado: "Paçoca",
+      ativo: true,
     },
     {
-      nome: "Paulo Figueira",
-      telefone: "(11) 93456-2734",
-      idade: 22,
-      nascimento: "03/04/2000",
-      nomeMae: "Vivian Figueira",
-      nomePai: "",
-    },
-    {
-      nome: "Fabiano Oliveira",
-      telefone: "(11) 96790-6432",
-      idade: 17,
-      nascimento: "14/09/2005",
-      nomeMae: "Yelena Oliveira",
-      nomePai: "Olivio Oliveira",
+      segunda: "Achocolatado",
+      terca: "Farinha",
+      sabado: "Pão de frios",
+      ativo: false,
     },
   ];
+
+  const hortifruit = [
+    {
+      segunda: "Laranja",
+      terca: "Pêra",
+      sabado: "Abacaxi",
+    },
+    {
+      segunda: "Banana",
+      terca: "Maça",
+      sabado: "Abacaxi",
+    },
+    {
+      segunda: "Limão",
+      terca: "Kiwi",
+      sabado: "Morango",
+    },
+  ]
+
+  const semanaDeOferta = mercearia.filter(ofertas => {
+    return ofertas.ativo === false
+  })
+
+  const frutaPremiada = hortifruit.filter(fruta => {
+    return fruta.sabado === "Abacaxi"
+  })
+
   return (
     <div className="App">
-      {formulario.map((item) => {
-        return (
-          <div className="box-form">
-            <div className="box-info">
-              <h2>Nome: {item.nome}</h2>
-              <p><strong>Telefone:</strong> {item.telefone}</p>
-              <p><strong>Idade:</strong> {item.idade }</p>
-              <p><strong>Data de nascimento:</strong> {item.nascimento}</p>
-              <p><strong>Nome da Mãe:</strong> {item.nomeMae}</p>
-              {item.nomePai && <p><strong>Nome do Pai:</strong> {item.nomePai}</p>}
+      <h2>Mercearia Viva Bem</h2>
+      <h3>Promoção da 1ª e 2ª Semana</h3>
+      <section className="promo">
+        {semanaDeOferta.map(ofertas => {
+          return (
+            <div className="container-promo">
+              <p>Segunda: <span>{ofertas.segunda}</span></p>
+              <p>Terça: <span>{ofertas.terca}</span></p>
+              <p>Sabado: <span>{ofertas.sabado}</span></p>
             </div>
-          </div>
-        );
-      })}
+          )
+        })}
+      </section>
+      <h3>Fruta Premiada da 1ª e 2ª Semana</h3>
+      <section className="promo">
+        {frutaPremiada.map(fruta => {
+          return (
+            <div className="container-promo">
+              <p>Sabado: <span>{fruta.sabado}</span></p>
+            </div>
+          )
+        })}
+      </section>
     </div>
   );
 }
