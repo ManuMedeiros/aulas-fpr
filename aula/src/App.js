@@ -1,94 +1,60 @@
 import "./App.css";
 
 function App() {
-  const mercearia = [
+  const clubes = [
     {
-      segunda: "Pão",
-      terca: "Café",
-      sabado: "Leite",
-      ativo: true,
+      pais: "USA",
+      estado: "Los Angeles",
+      melhorJogador: "LeBron James",
+      clubeEsporte: [
+        {
+          clube: "Los Angeles FC",
+          esporte: "Futebol",
+        },
+        {
+          clube: "Los Angeles Lakers",
+          esporte: "Basquete",
+        },
+      ],
     },
     {
-      segunda: "Presunto",
-      terca: "Queijo",
-      sabado: "Margarina",
-      ativo: false,
-    },
-    {
-      segunda: "Bolacha",
-      terca: "Salame",
-      sabado: "Paçoca",
-      ativo: true,
-    },
-    {
-      segunda: "Achocolatado",
-      terca: "Farinha",
-      sabado: "Pão de frios",
-      ativo: false,
-    },
-  ];
-
-  const hortifruit = [
-    {
-      segunda: "Laranja",
-      terca: "Pêra",
-      sabado: "Abacaxi",
-    },
-    {
-      segunda: "Banana",
-      terca: "Abacaxi",
-      sabado: "Maçã",
-    },
-    {
-      segunda: "Limão",
-      terca: "Kiwi",
-      sabado: "Morango",
+      pais: "Brasil",
+      estado: "Rio de Janeiro",
+      melhorJogador: "Gabigol",
+      clubeEsporte: [
+        {
+          clube: "Flamengo FC",
+          esporte: "Futebol",
+        },
+        {
+          clube: "Flamengo",
+          esporte: "Basquete",
+        },
+      ],
     },
   ];
-
-  const semanaDeOferta = mercearia.filter((ofertas) => {
-    return ofertas.ativo === false;
-  });
-
-  const frutaPremiada = hortifruit.filter((fruta) => {
-    return fruta.sabado === "Abacaxi" || fruta.terca === "Abacaxi"
-  });
 
   return (
     <div className="App">
-      <h1>Mercearia Viva Bem</h1>
-      <h2>Promoção da 1ª e 2ª Semana</h2>
-      <section className="promo">
-        {semanaDeOferta.map((ofertas) => {
+      <section>
+        <h1>Melhores Países</h1>
+        {clubes.map((locais) => {
+          const filter = locais.clubeEsporte.filter((melhor) => {
+            return melhor.esporte !== "Futebol";
+          });
           return (
-            <div className="container-promo">
-              <p>
-                Segunda: <span>{ofertas.segunda}</span>
-              </p>
-              <p>
-                Terça: <span>{ofertas.terca}</span>
-              </p>
-              <p>
-                Sabado: <span>{ofertas.sabado}</span>
-              </p>
-            </div>
-          );
-        })}
-      </section>
-      <h2>Fruta Premiada da 1ª e 2ª Semana</h2>
-      <section className="promo">
-        {frutaPremiada.map((fruta) => {
-          return (
-            <div className="container-promo">
-              <p>
-                Segunda: <span>{fruta.segunda}</span>
-              </p>
-              <p>
-                Terça: <span>{fruta.terca}</span>
-              </p>
-              <p>
-                Sabado: <span>{fruta.sabado}</span>
-              </p>
+            <div className="container">
+              <h2>País: {locais.pais}</h2>
+              <h2>Estado: {locais.estado}</h2>
+              <h2>Melhor Jogadro: {locais.melhorJogador}</h2>
+              {filter.map((melhores) => {
+                return (
+                  <>
+                    <h2>Melhor Clube: {melhores.clube}</h2>
+                    <h2>Melhor Esporte: {melhores.esporte}</h2>
+                  </>
+                );
+              })}
             </div>
           );
         })}
