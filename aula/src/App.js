@@ -1,34 +1,30 @@
-import "./App.css";
-import Card from "./Components/Card";
-import Links from "./Components/Links";
-import { textCard } from "./text";
+import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home';
+import Primeira from './pages/Primeira';
+import Segunda from './pages/Segunda';
+import Terceira from './pages/Terceira';
+import Nav from './Components/Button';
 
 function App() {
 
-  const showLink = true
-
   return (
-    <div className="App">
-      <div>
-        <Card title={"Livro de Matheus"} text={textCard.mateus} />
-        <Card title={"Livro de Marcos"} text={textCard.marcos} />
-        <Card title={"Livro de Lucas"} text={textCard.lucas} />
-        <Card title={"Livro de João"} text={textCard.joao} />
-      </div>
-      <div className="links">
-        <Links
-          link={"https://www.youtube.com/c/%C3%81guaVivaRibeir%C3%A3oPires"}
-          church={"Igreja Batista Água Viva"}
-          showLink={showLink}
-        />
-        <Links
-          link={"https://www.youtube.com/c/IgrejaEvAVideira"}
-          church={"Igreja Batista Videira"}
-          showLink={showLink}
-        />
-      </div>
-    </div>
-  );
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
+      <Routes>
+        <Route path='/primeira' element={<Primeira />} />
+      </Routes>
+      <Routes>
+        <Route path='/segunda' element={<Segunda />} />
+      </Routes>
+      <Routes>
+        <Route path='/terceira' element={<Terceira />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;

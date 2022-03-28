@@ -5,13 +5,3 @@ body {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
 }
-
-.App div{
-  display: flex;
-  align-items: center;
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-}

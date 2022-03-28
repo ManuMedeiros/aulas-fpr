@@ -1,0 +1,17 @@
+.App {
+    display: flex;
+  }
+  
+  .box-form {
+    margin: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 15%;
+  }
+  
+  .box-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 10px;
+  }
