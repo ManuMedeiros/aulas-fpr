@@ -6,31 +6,12 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.App {
+.App div{
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
-.promo {
-  display: flex;
-  justify-content: center;
-  width: 50%;
-}
-
-.container-promo {
+.links {
   display: flex;
   flex-direction: column;
-  border: 1px solid #006400;
-  width: 25%;
-  margin: 0 0 20px 25px;
-  padding-left: 10px;
-  border-radius: 10px;
-  background-color: #006400;
-  box-shadow: 10px 5px 5px black;
-  cursor: pointer;
-}
-
-span {
-  font-style: italic;
 }
