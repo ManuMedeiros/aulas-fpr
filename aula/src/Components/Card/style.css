@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #b9c0c7;
+    border-radius: 10px;
+    background-color: #b9c0c7;
+    margin: 10px;
+    width: 20%;
+    padding: 15px;
+    color: #000;
+}
