@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
 
-const Input = ({ onChange }) => {
+const Input = ({ onChange, text }) => {
   return (
     <>
       <div>
-        <label>Qual o melhor?</label>
+        <label>{text}</label>
         <input type="text" placeholder="Digitando..." onChange={onChange} />
       </div>
     </>
