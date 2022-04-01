@@ -5,8 +5,6 @@ import { textCard } from "./text";
 
 function App() {
 
-  const showLink = true
-
   return (
     <div className="App">
       <div>
@@ -19,12 +17,12 @@ function App() {
         <Links
           link={"https://www.youtube.com/c/%C3%81guaVivaRibeir%C3%A3oPires"}
           church={"Igreja Batista Água Viva"}
-          showLink={showLink}
+          showLink={true}
         />
         <Links
           link={"https://www.youtube.com/c/IgrejaEvAVideira"}
           church={"Igreja Batista Videira"}
-          showLink={showLink}
+          showLink={false}
         />
       </div>
     </div>
