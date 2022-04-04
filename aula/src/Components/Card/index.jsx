@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css"
 
-const Card = ({title, text}) => {
+const Card = ({title, text, anuncio}) => {
     return (
         <div className="container">
             <h2 className="Title">{title}</h2>
-            <p className="text">{text}</p>
+            {anuncio && <p className="text">{text}</p>}
         </div>
     )
 }

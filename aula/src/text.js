@@ -1,6 +1,24 @@
-export const textCard = {
-    mateus: "Jesus é representado pelo Leão - Sendo assim Ele é o maior Rei",
-    marcos: "Jesus é representado pelo Boi - Sendo assim Ele é o maior Servo",
-    lucas: "Jesus é representado pelo Homem - Sendo assim Ele é o maior Homem",
-    joao: "Jesus é representado pela Aguia - Sendo assim Ele é o filho do Deus",
-}
+export const textCard = [
+  {
+    biblia: "Biblia",
+    velhoTestamentp: "Profetas",
+    profetas: true,
+    lista: [
+      {
+        profeta: "Isaias",
+        grandeObra: "Anuncio de Jesus",
+        anunciouCristo: true,
+      },
+      {
+        profeta: "Ezequiel",
+        grandeObra: "Visão no vale de ossos secos",
+        anunciouCristo: true,
+      },
+      {
+        profeta: "Daniel",
+        grandeObra: "Fé na cova dos leões",
+        anunciouCristo: true,
+      },
+    ],
+  },
+];

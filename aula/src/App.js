@@ -3,29 +3,34 @@ import Card from "./Components/Card";
 import Links from "./Components/Links";
 import { textCard } from "./text";
 
+// um mock de um obj com duas strings, um boolean e uma lista, dentro da lista
+// 3 objs com duas strings e 1 boolena(2 falses e 1 true)
+
+// criar 1 componente e renderizar 3 vezes
+// com a resposta dos 3 objetos da lista sendo passado por props individualmente
+
+// quando boolean false for passado nao exibe nada, e quando for true exibe o conteudo
+
 function App() {
-
-  const showLink = true
-
   return (
     <div className="App">
       <div>
-        <Card title={"Livro de Matheus"} text={textCard.mateus} />
-        <Card title={"Livro de Marcos"} text={textCard.marcos} />
-        <Card title={"Livro de Lucas"} text={textCard.lucas} />
-        <Card title={"Livro de João"} text={textCard.joao} />
-      </div>
-      <div className="links">
-        <Links
-          link={"https://www.youtube.com/c/%C3%81guaVivaRibeir%C3%A3oPires"}
-          church={"Igreja Batista Água Viva"}
-          showLink={showLink}
-        />
-        <Links
-          link={"https://www.youtube.com/c/IgrejaEvAVideira"}
-          church={"Igreja Batista Videira"}
-          showLink={showLink}
-        />
+        {textCard.map((profetas) => {
+          return (
+            <>
+              <h1>{profetas.biblia}</h1>
+              <h2>{profetas.velhoTestamentp}</h2>
+              {profetas.lista.map((item) => {
+                return (
+                  <Card
+                    title={item.profeta}
+                    text={item.grandeObra}
+                    anuncio={item.anunciouCristo} />
+                )
+              })}
+            </>
+          );
+        })}
       </div>
     </div>
   );
