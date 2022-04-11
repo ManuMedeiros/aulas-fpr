@@ -6,12 +6,20 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.App div{
+.App {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.links {
+.containder{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #fff;
+  width: 40%;
+  height: 40vh;
+  box-shadow: 10px 10px 10px #000;
 }
+

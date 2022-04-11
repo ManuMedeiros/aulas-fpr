@@ -1,0 +1,20 @@
+div {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+label {
+    color: #000;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    margin: 10px 0;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #000;
+}
