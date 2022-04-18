@@ -1,27 +1,29 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home';
-import Primeira from './pages/Primeira';
-import Segunda from './pages/Segunda';
-import Terceira from './pages/Terceira';
-import Nav from './Components/Button';
+import Nike from './pages/Nike';
+import Berlutini from './pages/Bertulini';
+import AllStar from './pages/AllStar';
+import Adidas from './pages/Adidas';
 
 function App() {
 
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>
       <Routes>
-        <Route path='/primeira' element={<Primeira />} />
+        <Route path='/nike' element={<Nike />} />
       </Routes>
       <Routes>
-        <Route path='/segunda' element={<Segunda />} />
+        <Route path='/bertulini' element={<Berlutini />} />
       </Routes>
       <Routes>
-        <Route path='/terceira' element={<Terceira />} />
+        <Route path='/allstar' element={<AllStar />} />
+      </Routes>
+      <Routes>
+        <Route path='/adidas' element={<Adidas />} />
       </Routes>
     </BrowserRouter>
   )
