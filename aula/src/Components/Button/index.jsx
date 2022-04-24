@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css"
 
-const Button = ({ call }) => {
+const Button = ({ call, title }) => {
   return (
-    <button onClick={call}>Enviar...</button>
+    <button onClick={call}>{title}</button>
   );
 };
 
