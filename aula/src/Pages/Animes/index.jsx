@@ -8,9 +8,6 @@ const Animes = () => {
     const categoriaSplit = anime[1].split('categoria=')[1]
     const personaSplit = anime[2].split('principal=')[1]
 
-    console.log(personaSplit)
-
-
     return (
         <>
             <div>
