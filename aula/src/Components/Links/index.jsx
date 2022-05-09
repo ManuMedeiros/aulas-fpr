@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
 
-const Links = ({ link, showLink, church }) => {
-    return <>{showLink === true && <a href={link}>{church}</a>}</>;
+const Links = ({ link, text }) => {
+    return <><a href={link}>{text}</a></>;
 };
 
 export default Links;
