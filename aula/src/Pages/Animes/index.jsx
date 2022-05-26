@@ -1,49 +1,65 @@
 import React from "react";
+import "./styles.css"
 
 const Animes = () => {
 
-    const url = window.location.href;
-    const anime = url.split('&')
-    const animeSplit = anime[0].split('animes=')[1]
-    const categoriaSplit = anime[1].split('categoria=')[1]
-    const personaSplit = anime[2].split('principal=')[1]
+    const params = new URLSearchParams(window.location.search);
+    let urlParams = undefined;
+    params.forEach((value, key) => {
+        urlParams = Object.assign({}, urlParams, {
+            [key]: value.toString()
+        });
+    });
+
+    console.log(urlParams)
+
+    const renderLogo = () => {
+        if (urlParams.loja === 'americanas') {
+            return <img src='https://www.anacouto.com.br/wp-content/uploads/2021/07/GALERIA-SITE-AMERICANAS.png' />
+        } else if (urlParams.loja === 'magazine') {
+            return <img src='https://ri.magazineluiza.com.br/images/thumb-magalu.png' />
+        } else if (urlParams.loja === 'riachuelo') {
+            return <img src='https://boulevardshopping.com.br/lojas_files/22962.jpg' />
+        } 
+    }
+
+    const renderFundo = (background) => {
+        switch (background) {
+            case 'azul': return 'blue';
+            case 'amarelo': return 'yellow';
+            case 'vermelho': return 'red';
+        }
+    }
+
+    const renderComodo = () => {
+        if (urlParams.comodo === 'cozinha') {
+            return <img src='https://casa.abril.com.br/wp-content/uploads/2021/06/cozinha-pequena-parecer-ampla-blog-inove-papeis-de-parede-03..jpg?quality=95&strip=info&w=1024' />
+        } else if (urlParams.comodo === 'sala') {
+            return <img src='http://s2.glbimg.com/l7GmJGM8LEwG-alI8Z_8nzkKlgI=/620x450/e.glbimg.com/og/ed/f/original/2015/08/14/1_1.jpg'/>
+        } else if (urlParams.comodo === 'quarto') {
+            return <img src='https://blog.fratellihouse.com.br/wp-content/uploads/2021/02/Quarto-de-hospedes-com-tons-em-verde-1024x576.jpg'/>
+        }
+    }
+
+    const renderForncedor = () => {
+        if (urlParams.forncedor === 'philco') {
+            return <h3>Philco - Tem coisas que só a Philco faz pra você</h3>
+        } else if (urlParams.forncedor === 'madeira') {
+            return <h3>Madeira Madeira - Monte sua casa, conte sua história.</h3>
+        } else if (urlParams.forncedor === 'bonato') {
+            return <h3>Bonato - Cada solução, um recomeço</h3>
+        }
+    }
 
     return (
-        <>
-            <div>
-                <h1>Animes</h1>
-                {animeSplit === 'naruto' && (
-                    <div style={{ background: '#000' }}>
-                        {animeSplit === 'naruto' && <h2>Naruto</h2>}
-                        {categoriaSplit === 'ninja' && <h2>Ninja</h2>}
-                        {personaSplit === 'naruto' && <img src='https://nerdhits.com.br/wp-content/uploads/2020/01/screen-0-576x1024.jpg' style={{ width: '20%' }} />}
-                        <a href="?animes=bleach&categoria=shinigami&principal=ichigo">
-                            <h3>Proximo</h3>
-                        </a>
-                    </div>
-                )}
-                {animeSplit === 'bleach' && (
-                    <div style={{ background: '#000' }}>
-                        {animeSplit === 'bleach' && <h2>Bleach</h2>}
-                        {categoriaSplit === 'shinigami' && <h2>Shinigami</h2>}
-                        {personaSplit === 'ichigo' && <img src='https://animesonline.com.br/wp-content/uploads/2020/12/ichigo-kurosaki-wallpaper.jpg' style={{ width: '20%' }} />}
-                        <a href="?animes=attack&categoria=titans&principal=eren">
-                            <h3>Proximo</h3>
-                        </a>
-                    </div>
-                )}
-                {animeSplit === 'attack' && (
-                    <div style={{ background: '#000' }}>
-                        {animeSplit === 'attack' && <h2>Attack on Titans</h2>}
-                        {categoriaSplit === 'titans' && <h2>Titans</h2>}
-                        {personaSplit === 'eren' && <img src='https://i.pinimg.com/564x/48/b6/dc/48b6dc24eaa3e80d9e1b00f7ad4790f7.jpg' style={{ width: '20%' }} />}
-                        <a href="/">
-                            <h3>Home</h3>
-                        </a>
-                    </div>
-                )}
-            </div>
-        </>
+        <div className="container" style={{background: renderFundo(urlParams.fundo)}}>
+            {renderLogo()}
+            {renderComodo()}
+            {renderForncedor()}
+            <a href="/">
+                <h1>Voltar</h1>
+            </a>
+        </div>
     )
 }
 
