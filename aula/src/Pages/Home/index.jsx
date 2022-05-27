@@ -12,17 +12,15 @@ const Home = () => {
     useEffect(() => {
         axios.get('https://aulas-fpr-default-rtdb.firebaseio.com/pokemon.json')
             .then((response) => {
-                console.log(response.data, 'response')
-                setPokedex(response?.data)
-            })
+            setPokedex(response?.data)
+        })
     }, [])
 
     return (
         <div className="container-home">
             <div>
             <h2>Fist Evoulution</h2>
-                {Object.values(pokedex.firstEvolution).map(first => {
-                    console.log(first, 'first')
+                {pokedex && Object.values(pokedex?.firstEvolution)?.map(first => {
                     return (
                         <>
                             <div className="card-pokemon">
@@ -37,8 +35,7 @@ const Home = () => {
             </div>
             <div>
             <h2>Second Evoulution</h2>
-                {Object.values(pokedex.secondEvolution).map(second => {
-                    console.log(second, 'second')
+                {pokedex && Object.values(pokedex.secondEvolution).map(second => {
                     return (
                         <>
                             <div className="card-pokemon">
