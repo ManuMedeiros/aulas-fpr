@@ -1,11 +1,13 @@
 import React from "react";
 import "./style.css"
 
-const Card = ({title, text}) => {
+const Card = ({title, type, weight, heigth}) => {
     return (
         <div className="container">
             <h2 className="Title">{title}</h2>
-            <p className="text">{text}</p>
+            <p className="type">{type}</p>
+            <p className="text">{weight}</p>
+            <p className="text">{heigth}</p>
         </div>
     )
 }
