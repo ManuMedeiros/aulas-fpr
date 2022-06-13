@@ -1,0 +1,19 @@
+.conatiner-edit {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border: 1px solid #fff;
+    background: #000;
+    margin: 1rem;
+}
+
+
+.edicao {
+    display: flex;
+    flex-direction: column;
+}
+
+.campos {
+    display: flex;
+    justify-content: center;
+}
